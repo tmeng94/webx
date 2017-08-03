@@ -50,14 +50,13 @@ export default class App extends React.Component {
     if (text.startsWith('Webx!')) {
       try {
         let dec = CryptoJS.AES.decrypt(text.slice(5), this.state.pwd1 + '!' + this.state.pwd2 + '!' + this.state.pwd3);
-        if (!dec) return "很抱歉，我不知道你在说什么。";
         let res = dec.toString(CryptoJS.enc.Utf8);
-        return res? res: "很抱歉，我不知道你在说什么。"
+        return res;
       } catch (e) {
-        return "很抱歉，我不知道你在说什么。";
+        return null;
       }      
     } else {
-      return "很抱歉，我不知道你在说什么。";
+      return null;
     }
   }
 
@@ -68,19 +67,36 @@ export default class App extends React.Component {
         <WebxInput value={this.state.pwd1} onChangeText={(text) => {
             this.setState({
               pwd1: text,
-            })
+            }, () => {
+              let decTxt = this.decrypt(this.state.cipherText);
+              if (decTxt) {
+                this.setState({
+                  plainText: decTxt,
+                });
+              }
+            });
+            
           }} />
         <Text>怎么又黄了？</Text>
         <WebxInput value={this.state.pwd2} onChangeText={(text) => {
             this.setState({
               pwd2: text,
-            })
+            }, () => {
+              let decTxt = this.decrypt(this.state.cipherText);
+              if (decTxt) {
+                this.setState({
+                  plainText: decTxt,
+                });
+              }
+            });            
           }} />
         <Text>微不信：</Text>
         <WebxMultilineInput value={this.state.cipherText} onChangeText={(text) => {
+            let decTxt = this.decrypt(text);
+            if (!decTxt) decTxt = "很抱歉，我不知道你在说什么。";
             this.setState({
               cipherText: text,
-              plainText: this.decrypt(text),
+              plainText: decTxt,
             })
           }} />
         <Text>信不信由你：</Text>
