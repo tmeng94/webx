@@ -1,7 +1,28 @@
 # Webx
 
-See the [docs on the website](Screenshots/1.png).
+An encryption tool for simple message transmission.
 
-# Running tests
+# Running Webx
 
-When you submit a pull request CircleCI will automatically run all tests. To run tests locally, see [Testing](https://facebook.github.io/react-native/docs/testing.html).
+```
+# Install Debug Dependencies
+npm install react-native-cli -g
+npm install
+
+# Build Android JS Bundle (required after each modification)
+react-native bundle --platform android --dev false --entry-file index.js --bundle-output android\app\src\main\assets\index.android.bundle --assets-dest android\app\src\main\res
+
+# Run Android
+react-native run-android
+
+# Run iOS
+react-native run-ios
+```
+
+# Build APK
+
+See [Generating Signed APK](https://facebook.github.io/react-native/docs/signed-apk-android.html)
+
+# Screenshots
+
+![](Screenshots/1.png | width=300)![](Screenshots/2.png | width=300)![](Screenshots/3.png | width=300)
