@@ -96,7 +96,7 @@ export default class App extends React.Component {
             if (!decTxt) decTxt = "很抱歉，我不知道你在说什么。";
             this.setState({
               cipherText: text,
-              plainText: decTxt,
+              plainText: text ? decTxt : "",
             })
           }} />
         <Text>信不信由你：</Text>
@@ -116,8 +116,7 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#fff',
     alignItems: 'center',
-    paddingTop: 50
-    // justifyContent: 'center',
+    justifyContent: 'center',
   },
   input: {
     width: 240,
