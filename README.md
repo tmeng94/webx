@@ -25,4 +25,4 @@ See [Generating Signed APK](https://facebook.github.io/react-native/docs/signed-
 
 # Screenshots
 
-![](Screenshots/1.png | width=300)![](Screenshots/2.png | width=300)![](Screenshots/3.png | width=300)
+![](Screenshots/1.png)![](Screenshots/2.png)![](Screenshots/3.png)
