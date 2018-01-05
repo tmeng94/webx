@@ -34,8 +34,8 @@ export default class App extends React.Component {
   constructor(props){ 
     super(props);
     this.state = {
-      pwd1: "antidisestablishmentarianism",
-      pwd2: "honorificabilitudinitatibus",
+      pwd1: "精神焕发",
+      pwd2: "防冷涂的蜡",
       pwd3: "WeiBuXin @_@ 微不信",
       cipherText: "",
       plainText: ""
@@ -63,7 +63,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Encrytion Key 1</Text>
+        <Text>你的脸怎么红了？</Text>
         <WebxInput value={this.state.pwd1} onChangeText={(text) => {
             this.setState({
               pwd1: text,
@@ -77,7 +77,7 @@ export default class App extends React.Component {
             });
             
           }} />
-        <Text>Encryption Key 2</Text>
+        <Text>怎么又黄了？</Text>
         <WebxInput value={this.state.pwd2} onChangeText={(text) => {
             this.setState({
               pwd2: text,
@@ -90,16 +90,16 @@ export default class App extends React.Component {
               }
             });            
           }} />
-        <Text>Encrypted Text (Paste to Decrypt)</Text>
+        <Text>微不信：</Text>
         <WebxMultilineInput value={this.state.cipherText} onChangeText={(text) => {
             let decTxt = this.decrypt(text);
-            if (!decTxt) decTxt = "Sorry, I can't decrypt your text.";
+            if (!decTxt) decTxt = "很抱歉，我不知道你在说什么。";
             this.setState({
               cipherText: text,
               plainText: text ? decTxt : "",
             })
           }} />
-        <Text>Plain Text (Input to Encrypt)</Text>
+        <Text>信不信由你：</Text>
         <WebxMultilineInput value={this.state.plainText} onChangeText={(text) => {
             this.setState({
               cipherText: text ? this.encrypt(text) : "",
