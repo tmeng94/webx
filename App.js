@@ -63,7 +63,7 @@ export default class App extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Text>Encrytion Key 1</Text>
+        <Text>Encryption Key 1</Text>
         <WebxInput value={this.state.pwd1} onChangeText={(text) => {
             this.setState({
               pwd1: text,
