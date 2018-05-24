@@ -54,3 +54,7 @@ buck-out/
 
 # Release
 android/app/release/
+android/app/src/main/assets/
+
+# Bundle artifact
+*.jsbundle

@@ -10,7 +10,7 @@ npm install react-native-cli -g
 npm install
 
 # Build Android JS Bundle (required after each modification)
-react-native bundle --platform android --dev false --entry-file index.js --bundle-output android\app\src\main\assets\index.android.bundle --assets-dest android\app\src\main\res
+npm run bundle-android
 
 # Run Android
 react-native run-android
