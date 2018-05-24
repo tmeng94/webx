@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, Text, TextInput, Button, View, Clipboard} from 'react-native';
+import {StyleSheet, Text, TextInput, Button, View, ScrollView, Clipboard} from 'react-native';
 import CryptoJS from 'crypto-js';
 import autobind from 'autobind-decorator'
 
@@ -98,7 +98,10 @@ export default class App extends React.Component {
 
     render() {
         return (
-            <View style={styles.container}>
+            <ScrollView
+                contentContainerStyle={styles.container}
+                keyboardShouldPersistTaps="handled"
+            >
                 <Text>你的脸怎么红了？</Text>
                 <WebxInput value={this.state.pwd1} onChangeText={(text) => {
                     this.setState({
@@ -144,20 +147,22 @@ export default class App extends React.Component {
                     </View>
                 </View>
                 <WebxMultilineInput value={this.state.plainText} onChangeText={this.updateCipherText}/>
-            </View>
+            </ScrollView>
         );
     }
 }
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        flexGrow: 1,
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
+        paddingVertical: 10
     },
     input: {
         width: 240,
+        height: 40,
         borderColor: 'gray',
         borderWidth: 1
     },
